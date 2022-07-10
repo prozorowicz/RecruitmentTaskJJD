@@ -1,5 +1,29 @@
 # RecruitmentTaskJJD
-My interpretation of the task assumes that:
-* List of blocks in CompositeBlock interface is a list of blocks that are part of composite block.
-* List of blocks in Wall class is a list all the blocks in a wall, in this list a composite block is a single entry.
+zaimplementuj metody findBlockByColor, findBlocksByMaterial, count w klasie Wall. 
+unikaj powielania kodu i umieść całą logikę w klasie Wall.
+Uwzględnij w analizie i implementacji interfejs CompositeBlock.
+##
+interface Structure {
+// zwraca dowolny element o podanym kolorze
+Optional findBlockByColor(String color);
+
+// zwraca wszystkie elementy z danego materiału
+List findBlocksByMaterial(String material);
+
+// zwraca liczbę wszystkich elementów tworzących strukturę
+int count();
+}
+##
+public class Wall implements Structure {
+private List blocks;
+}
+##
+interface Block {
+String getColor();
+String getMaterial();
+}
+##
+interface CompositeBlock extends Block {
+List getBlocks();
+}
 
